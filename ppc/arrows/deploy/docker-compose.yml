@@ -1,0 +1,6 @@
+services:
+  arrows_captcha:
+    build: .
+    ports:
+      - "10019:9999"
+    restart: always

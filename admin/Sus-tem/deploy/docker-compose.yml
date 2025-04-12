@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  sus-ssh:
+    build: .
+    ports:
+      - "13401:22"
+    container_name: sus-ssh
+    restart: always

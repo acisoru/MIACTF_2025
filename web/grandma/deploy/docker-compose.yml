@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+
+  webgrandma:
+    build: ./app
+    restart: always
+    ports:
+      - "7452:5000"
+    environment:
+      - FLAG=miactf{oh_gr@ndm@_wh@t_arE_y0u_d01ng}
+      - AUTH_TOKEN=eyJ1c2VybmFtZSI6ImZqc2RmamRzamZqc2FkbmhmanNkZmtzYWRiZmxhaHNmZGZzZHdlMjM0MTIifQ.Z49lmQ.7pVMtgG69KJLzYAYyQ61RO1fnB8
+
+  botgrandma:
+    build: ./bot
+    restart: always
+    environment:
+      - BOT_TOKEN=<Telegram_bot_token>
+      - AUTH_TOKEN=eyJ1c2VybmFtZSI6ImZqc2RmamRzamZqc2FkbmhmanNkZmtzYWRiZmxhaHNmZGZzZHdlMjM0MTIifQ.Z49lmQ.7pVMtgG69KJLzYAYyQ61RO1fnB8

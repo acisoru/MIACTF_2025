@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рецепты</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+        }
+        h2 {
+            color: #4CAF50;
+            font-size: 24px;
+        }
+        article {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        article h3 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        article p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        article img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        section {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        section h2 {
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать на сайт с рецептами</h1>
+        {% if authorized %}
+        <nav>
+            <a href="/logout">Выйти</a>
+        </nav>
+        {% else %}
+        <nav>
+            <a href="/register">Регистрация</a>
+            <a href="/login">Вход</a>
+        </nav>
+        {% endif %}
+    </header>
+    <main>
+        <h2>Популярные рецепты</h2>
+        
+        <article>
+            <h3>Рецепт борща</h3>
+            <p>Ингредиенты: свекла, капуста, картофель, морковь, лук, чеснок, томатная паста, соль, перец, лавровый лист.</p>
+            <p>Приготовление: Нарезать овощи, обжарить лук и морковь, добавить свеклу и капусту. Варить до готовности и подавать с чесночными пампушками.</p>
+            <img src="https://example.com/borscht.jpg" alt="Борщ с пампушками">
+        </article>
+
+        <article>
+            <h3>Рецепт пиццы</h3>
+            <p>Ингредиенты: тесто, томатный соус, сыр, колбаса, оливки, помидоры, базилик, орегано.</p>
+            <p>Приготовление: Раскатать тесто, намазать соус, выложить начинку и запечь в духовке при 220°C 15-20 минут.</p>
+            <img src="https://example.com/pizza.jpg" alt="Пицца с колбасой и оливками">
+        </article>
+
+        <article>
+            <h3>Рецепт пасты с соусом песто</h3>
+            <p>Ингредиенты: паста, базилик, оливковое масло, чеснок, кедровые орехи, пармезан, лимонный сок, соль.</p>
+            <p>Приготовление: Сварить пасту, в блендере смешать ингредиенты для соуса. Паста с соусом песто готова!</p>
+            <img src="https://example.com/pasta-pesto.jpg" alt="Паста с соусом песто">
+        </article>
+
+        <article>
+            <h3>Рецепт оладий</h3>
+            <p>Ингредиенты: мука, яйцо, молоко, сахар, соль, сода, растительное масло.</p>
+            <p>Приготовление: Взбить яйца с сахаром, добавить молоко и муку с содой. Обжарить на сковороде до золотистой корочки.</p>
+            <img src="https://example.com/pancakes.jpg" alt="Оладьи с медом">
+        </article>
+
+        <article>
+            <h3>Рецепт куриного карри</h3>
+            <p>Ингредиенты: куриное филе, кокосовое молоко, паста карри, картофель, морковь, лук, чеснок, специи.</p>
+            <p>Приготовление: Обжарить лук с чесноком, добавить курицу и овощи, затем влить кокосовое молоко и тушить до готовности.</p>
+            <img src="https://example.com/chicken-curry.jpg" alt="Куриное карри с рисом">
+        </article>
+
+        {% if is_admin %}
+        <section>
+            <h2>Флаг для администратора:</h2>
+            <p>{{ flag }}</p>
+            <p>{{ mgs }}</p>
+        </section>
+        {% endif %}
+    </main>
+</body>
+</html>

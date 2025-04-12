@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; uvicorn app.main:app --host 0.0.0.0'
+    volumes:
+      - .:/app
+    environment:
+      - DB_URL=postgresql://veryka1fw3b41ktask:veryka1fw3b41ktask@db:5432/veryka1fw3b41ktask
+      - SECRET_KEY=${SECRET_KEY:-$(openssl rand -hex 32)}
+      - FLAG=miactf{jwt_is_not_hard}
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/.git:/usr/share/nginx/html/.git:ro
+    ports:
+      - 7777:8888
+    depends_on:
+      - web
+
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=veryka1fw3b41ktask
+      - POSTGRES_PASSWORD=veryka1fw3b41ktask
+      - POSTGRES_DB=veryka1fw3b41ktask
+
+volumes:
+  postgres_data:

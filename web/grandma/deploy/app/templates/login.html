@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Вход</h1>
+        <nav>
+            <a href="index">На главную</a>
+            <a href="register">Регистрация</a>
+        </nav>
+    </header>
+    <main>
+        <form action="/login" method="POST">
+            <label for="username">Имя пользователя:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Войти</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 Рецепты для всех</p>
+    </footer>
+</body>
+</html>

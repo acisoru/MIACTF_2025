@@ -1,0 +1,12 @@
+asyncpg
+fastapi
+ormar
+psycopg2-binary
+pydantic-settings
+uvicorn
+starlette
+pydantic
+databases
+SQLAlchemy
+jinja2
+pyjwt

@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  mia_bot:
+    build: .
+    container_name: mia_bot
+    volumes:
+      - ./api.txt:/app/api.txt:ro
+      - ./flag.txt:/app/flag.txt:ro
+    restart: unless-stopped

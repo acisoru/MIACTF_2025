@@ -1,0 +1,10 @@
+services:
+  awesome_asm:
+    build: .
+    restart: unless-stopped
+    pids_limit: 512
+    read_only: true
+    mem_limit: 128M
+    cpus: 1
+    ports: 
+      - "17171:17171"

@@ -1,0 +1,11 @@
+services:
+  pinger_task:
+    build:
+      dockerfile: Dockerfile
+    environment:
+      - TMPDIR=/tmp
+      - ADMIN_USER_ID=6833125531
+      - TG_BOT_TOKEN=7726687396:AAElaKD5CwG
+      - BOT_LINK=https://t.me/secureadmin2025_bot
+    ports:
+      - "10010:10010"

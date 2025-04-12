@@ -1,0 +1,10 @@
+services:
+  robotics2:
+    build: .
+    restart: unless-stopped
+    pids_limit: 8192
+    read_only: true
+    mem_limit: 1024M
+    cpus: 4
+    ports:
+      - "11331:11331"

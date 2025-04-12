@@ -1,0 +1,6 @@
+services:
+  bottleflip:
+    build: .
+    ports:
+      - "10018:8080"
+    restart: always

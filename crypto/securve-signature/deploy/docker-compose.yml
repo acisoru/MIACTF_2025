@@ -1,0 +1,8 @@
+version: '3.1'
+
+services:
+  securve-signature:
+    build: .
+    restart: always
+    ports:
+     - "6184:6184"
